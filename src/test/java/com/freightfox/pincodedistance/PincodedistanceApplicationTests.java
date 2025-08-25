@@ -36,8 +36,8 @@ class PincodedistanceApplicationTests {
         PincodeDistance cached = new PincodeDistance();
         cached.setFromPincode("560001");
         cached.setToPincode("110001");
-        cached.setDistance(200.0);
-        cached.setDuration(3.5);
+        cached.setDistance("200.0 KM" );
+        cached.setDuration("3.5 Hrs");
 
         when(repo.findByFromPincodeAndToPincode("560001", "110001")).thenReturn(Optional.of(cached));
 

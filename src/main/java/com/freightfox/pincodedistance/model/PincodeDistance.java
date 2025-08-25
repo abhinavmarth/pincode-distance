@@ -12,30 +12,19 @@ public class PincodeDistance {
     private String fromPincode;
     private String toPincode;
 
-    private Double distance;
-    private Double duration;
+    private String distance;
 
-    @Lob
-    private String route;
+    public PincodeDistance() {
+    }
 
-    public PincodeDistance() {}
-
-    public PincodeDistance(Long id, String fromPincode, String toPincode, Double distance, Double duration, String route) {
-        this.id = id;
+    public PincodeDistance(String fromPincode, String toPincode, String distance, String duration) {
         this.fromPincode = fromPincode;
         this.toPincode = toPincode;
         this.distance = distance;
         this.duration = duration;
-        this.route = route;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String duration;
 
     public String getFromPincode() {
         return fromPincode;
@@ -53,27 +42,19 @@ public class PincodeDistance {
         this.toPincode = toPincode;
     }
 
-    public Double getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public void setDistance(Double distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 
-    public Double getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
-    }
-
-    public String getRoute() {
-        return route;
-    }
-
-    public void setRoute(String route) {
-        this.route = route;
     }
 }

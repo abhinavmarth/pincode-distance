@@ -53,19 +53,22 @@ public class PincodeService {
                 .getJSONObject(0)
                 .getJSONObject("summary");
 
-        double distanceKm = summary.getDouble("distance") / 1000.0;
-        double durationHr = summary.getDouble("duration") / 3600.0;
+        Double distanceKm = summary.getDouble("distance") / 1000.0;
+        Double durationHr = summary.getDouble("duration") / 3600.0;
 
         if (distanceKm > 6000) {
             System.out.println("Distance is greater than 6000 km");
         }
 
+        String formattedDistance = String.format("%.3f Km", distanceKm);
+        String formattedDuration = String.format("%.3f Hrs", durationHr);
+
         PincodeDistance pd = new PincodeDistance();
         pd.setFromPincode(req.getFromPincode());
         pd.setToPincode(req.getToPincode());
-        pd.setDistance(distanceKm);
-        pd.setDuration(durationHr);
-        pd.setRoute(json.toString());
+        pd.setDistance(formattedDistance);
+        pd.setDuration(formattedDuration);
+        //pd.setRoute(json.toString());
 
         pinRepo.save(pd);
         return pd;
